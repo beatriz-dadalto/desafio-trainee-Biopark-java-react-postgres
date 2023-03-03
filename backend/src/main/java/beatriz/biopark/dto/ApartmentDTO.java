@@ -1,21 +1,17 @@
-package beatriz.biopark.entities;
+package beatriz.biopark.dto;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import beatriz.biopark.entities.Apartment;
+import beatriz.biopark.entities.Building;
+import beatriz.biopark.entities.StatusApartment;
+import beatriz.biopark.entities.User;
 
-@Entity
-@Table(name = "tb_apartment")
-public class Apartment implements Serializable{
+
+public class ApartmentDTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private User user;
 	private String bedroom;
@@ -28,9 +24,23 @@ public class Apartment implements Serializable{
 	private Double rentAmount;
 	private String imageUrl;
 	
-	public Apartment() {}
+	public ApartmentDTO() {}
+	
+	public ApartmentDTO(Apartment apartment) {
+		this.id = apartment.getId();
+		this.user = apartment.getUser();
+		this.bedroom = apartment.getBedroom();
+		this.bathroom = apartment.getBathroom();
+		this.garage = apartment.getGarage();
+		this.floor = apartment.getFloor();
+		this.dimension = apartment.getDimension();
+		this.building = apartment.getBuilding();
+		this.statusApartment = apartment.getStatusApartment();
+		this.rentAmount = apartment.getRentAmount();
+		this.imageUrl = apartment.getImageUrl();
+	}
 
-	public Apartment(Long id, User user, String bedroom, String bathroom, String garage, String floor, String dimension,
+	public ApartmentDTO(Long id, User user, String bedroom, String bathroom, String garage, String floor, String dimension,
 			Building building, StatusApartment statusApartment, Double rentAmount, String imageUrl) {
 		this.id = id;
 		this.user = user;
@@ -45,7 +55,7 @@ public class Apartment implements Serializable{
 		this.imageUrl = imageUrl;
 	}
 	
-	public Apartment(User user, String bedroom, String bathroom, String garage, String floor, String dimension,
+	public ApartmentDTO(User user, String bedroom, String bathroom, String garage, String floor, String dimension,
 			Building building, StatusApartment statusApartment, Double rentAmount, String imageUrl) {
 		this.user = user;
 		this.bedroom = bedroom;
