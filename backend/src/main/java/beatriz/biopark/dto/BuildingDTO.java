@@ -1,24 +1,16 @@
-package beatriz.biopark.entities;
+package beatriz.biopark.dto;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import beatriz.biopark.entities.Apartment;
+import beatriz.biopark.entities.Building;
 
-@Entity
-@Table(name = "tb_building")
-public class Building implements Serializable {
+public class BuildingDTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Long id;
 	private String name;
 	private String street;
@@ -26,25 +18,22 @@ public class Building implements Serializable {
 	private String city;
 	private String neighborhood;
 	private String floors;
-
-	@OneToMany
 	private List<Apartment> apartments = new ArrayList<>();
-
-	public Building() {
+	
+	public BuildingDTO() {}
+	
+	public BuildingDTO(Building building) {
+		this.id = building.getId();
+		this.name = building.getName();
+		this.street = building.getStreet();
+		this.number = building.getNumber();
+		this.city = building.getCity();
+		this.neighborhood = building.getNeighborhood();
+		this.floors = building.getFloors();
 	}
-
-	public Building(Long id, String name, String street, String number, String city, String neighborhood,
-			String floors) {
+	
+	public BuildingDTO(Long id, String name, String street, String number, String city, String neighborhood, String floors) {
 		this.id = id;
-		this.name = name;
-		this.street = street;
-		this.number = number;
-		this.city = city;
-		this.neighborhood = neighborhood;
-		this.floors = floors;
-	}
-
-	public Building(String name, String street, String number, String city, String neighborhood, String floors) {
 		this.name = name;
 		this.street = street;
 		this.number = number;
