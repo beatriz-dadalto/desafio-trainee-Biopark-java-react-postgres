@@ -3,12 +3,14 @@ package beatriz.biopark.entities;
 import java.io.Serializable;
 import java.time.Instant;
 
+
+
 public class Advertise implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
-	private Lessor lessor;
+	private User user;
 	private String title;
 	private String description;
 	private Instant createdAt;
@@ -16,6 +18,17 @@ public class Advertise implements Serializable{
 	private Apartment apartment;
 	
 	public Advertise() {}
+
+	public Advertise(Long id, User user, String title, String description, Instant createdAt, boolean isActive,
+			Apartment apartment) {
+		this.id = id;
+		this.user = user;
+		this.title = title;
+		this.description = description;
+		this.createdAt = createdAt;
+		this.isActive = isActive;
+		this.apartment = apartment;
+	}
 
 	public Long getId() {
 		return id;
@@ -25,12 +38,12 @@ public class Advertise implements Serializable{
 		this.id = id;
 	}
 
-	public Lessor getLessor() {
-		return lessor;
+	public User getUser() {
+		return user;
 	}
 
-	public void setLessor(Lessor lessor) {
-		this.lessor = lessor;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String getTitle() {

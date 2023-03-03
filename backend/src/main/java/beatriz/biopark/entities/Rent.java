@@ -8,21 +8,20 @@ public class Rent implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
-	private Tenant tenant;
+	private User user;
 	private Apartment apartment;
 	private Instant createdAt;
-	private String durationRent;
+	private String durationMonths;
 	private boolean isActive;
 	
 	public Rent() {}
 
-	public Rent(Long id, Tenant tenant, Apartment apartment, Instant dateRent, String durationRent, boolean isActive) {
-		super();
+	public Rent(Long id, User user, Apartment apartment, Instant createdAt, String durationMonths, boolean isActive) {
 		this.id = id;
-		this.tenant = tenant;
+		this.user = user;
 		this.apartment = apartment;
-		this.createdAt = dateRent;
-		this.durationRent = durationRent;
+		this.createdAt = createdAt;
+		this.durationMonths = durationMonths;
 		this.isActive = isActive;
 	}
 
@@ -34,12 +33,12 @@ public class Rent implements Serializable {
 		this.id = id;
 	}
 
-	public Tenant getTenant() {
-		return tenant;
+	public User getUser() {
+		return user;
 	}
 
-	public void setTenant(Tenant tenant) {
-		this.tenant = tenant;
+	public void setTenant(User user) {
+		this.user = user;
 	}
 
 	public Apartment getApartment() {
@@ -50,20 +49,16 @@ public class Rent implements Serializable {
 		this.apartment = apartment;
 	}
 
-	public Instant getDateRent() {
+	public Instant getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setDateRent(Instant dateRent) {
-		this.createdAt = dateRent;
+	public String getDurationMonths() {
+		return durationMonths;
 	}
 
-	public String getDurationRent() {
-		return durationRent;
-	}
-
-	public void setDurationRent(String durationRent) {
-		this.durationRent = durationRent;
+	public void setDurationMonths(String durationRent) {
+		this.durationMonths = durationRent;
 	}
 
 	public boolean isActive() {

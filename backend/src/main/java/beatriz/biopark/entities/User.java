@@ -2,10 +2,20 @@ package beatriz.biopark.entities;
 
 import java.io.Serializable;
 
-public abstract class UserAbstract implements Serializable{
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tb_user")
+public class User implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 	private String email;
@@ -13,11 +23,19 @@ public abstract class UserAbstract implements Serializable{
 	private String password;
 	private Role role;
 	
-	public UserAbstract() {
+	public User() {
 	}
 
-	public UserAbstract(Long id, String name, String email, String phone, String password, Role role) {
+	public User(Long id, String name, String email, String phone, String password, Role role) {
 		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.password = password;
+		this.role = role;
+	}
+	
+	public User(String name, String email, String phone, String password, Role role) {
 		this.name = name;
 		this.email = email;
 		this.phone = phone;

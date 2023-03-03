@@ -2,13 +2,13 @@ package beatriz.biopark.entities;
 
 import java.io.Serializable;
 
+
 public class Apartment implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private Long id;
-	private Tenant tenant;
-	private Lessor lessor;
+	private User user;
 	private String bedroom;
 	private String bathroom;
 	private String garage;
@@ -21,12 +21,24 @@ public class Apartment implements Serializable{
 	
 	public Apartment() {}
 
-	public Apartment(Long id, Tenant tenant, Lessor lessor, String bedroom, String bathroom, String garage,
-			String floor, String dimension, Building building, StatusApartment statusApartment, Double rentAmount,
-			String imageUrl) {
+	public Apartment(Long id, User user, String bedroom, String bathroom, String garage, String floor, String dimension,
+			Building building, StatusApartment statusApartment, Double rentAmount, String imageUrl) {
 		this.id = id;
-		this.tenant = tenant;
-		this.lessor = lessor;
+		this.user = user;
+		this.bedroom = bedroom;
+		this.bathroom = bathroom;
+		this.garage = garage;
+		this.floor = floor;
+		this.dimension = dimension;
+		this.building = building;
+		this.statusApartment = statusApartment;
+		this.rentAmount = rentAmount;
+		this.imageUrl = imageUrl;
+	}
+	
+	public Apartment(User user, String bedroom, String bathroom, String garage, String floor, String dimension,
+			Building building, StatusApartment statusApartment, Double rentAmount, String imageUrl) {
+		this.user = user;
 		this.bedroom = bedroom;
 		this.bathroom = bathroom;
 		this.garage = garage;
@@ -46,20 +58,12 @@ public class Apartment implements Serializable{
 		this.id = id;
 	}
 
-	public Tenant getTenant() {
-		return tenant;
+	public User getUser() {
+		return user;
 	}
 
-	public void setTenant(Tenant tenant) {
-		this.tenant = tenant;
-	}
-
-	public Lessor getLessor() {
-		return lessor;
-	}
-
-	public void setLessor(Lessor lessor) {
-		this.lessor = lessor;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String getBedroom() {

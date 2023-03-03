@@ -15,7 +15,7 @@ public class Building implements Serializable{
 	private String city;
 	private String neighborhood;
 	private String floors;
-	private List<Apartment> apartment = new ArrayList<>();
+	private List<Apartment> apartments = new ArrayList<>();
 	
 	public Building() {}
 	
@@ -86,11 +86,11 @@ public class Building implements Serializable{
 	}
 
 	public List<Apartment> getApartment() {
-		return apartment;
+		return apartments;
 	}
 
 	public void setApartment(List<Apartment> apartment) {
-		this.apartment = apartment;
+		this.apartments = apartment;
 	}
 
 }

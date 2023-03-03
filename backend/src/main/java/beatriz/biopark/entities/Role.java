@@ -1,6 +1,6 @@
 package beatriz.biopark.entities;
 
 public enum Role{
-	Lessor,
-	Tenant  
+	LESSOR, // 0
+	TENANT  // 1
 }
