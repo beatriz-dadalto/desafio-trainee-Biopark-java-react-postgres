@@ -1,23 +1,18 @@
-package beatriz.biopark.entities;
+package beatriz.biopark.dto;
 
 import java.io.Serializable;
 import java.time.Instant;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import beatriz.biopark.entities.Advertise;
+import beatriz.biopark.entities.Apartment;
+import beatriz.biopark.entities.User;
 
 
-@Entity
-@Table(name = "tb_advertise")
-public class Advertise implements Serializable{
+
+public class AdvertiseDTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private User user;
 	private String title;
@@ -26,21 +21,21 @@ public class Advertise implements Serializable{
 	private boolean isActive;
 	private Apartment apartment;
 	
-	public Advertise() {}
+	public AdvertiseDTO() {}
+	
+	public AdvertiseDTO(Advertise advertise) {
+		this.id = advertise.getId();
+		this.user = advertise.getUser();
+		this.title = advertise.getTitle();
+		this.description = advertise.getDescription();
+		this.createdAt = advertise.getCreatedAt();
+		this.isActive = advertise.isActive();
+		this.apartment = advertise.getApartment();
+	}
 
-	public Advertise(Long id, User user, String title, String description, Instant createdAt, boolean isActive,
+	public AdvertiseDTO(Long id, User user, String title, String description, Instant createdAt, boolean isActive,
 			Apartment apartment) {
 		this.id = id;
-		this.user = user;
-		this.title = title;
-		this.description = description;
-		this.createdAt = createdAt;
-		this.isActive = isActive;
-		this.apartment = apartment;
-	}
-	
-	public Advertise(User user, String title, String description, Instant createdAt, boolean isActive,
-			Apartment apartment) {
 		this.user = user;
 		this.title = title;
 		this.description = description;
