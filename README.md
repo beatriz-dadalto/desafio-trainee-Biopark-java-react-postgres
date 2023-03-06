@@ -3,10 +3,10 @@
 
 ### Backend
 
-Java 11
-Eclipse
+- Java 11
+- Eclipse
 
-Aacesso da banco H2
+Acesso da banco H2
 http://localhost:8080/h2-console
 
 Endpoints:
@@ -17,6 +17,6 @@ Endpoints:
 
 ### Frontend
 
-`npm install`
-`npm run start`
+1. `npm install`
+2. `npm run start`
 
