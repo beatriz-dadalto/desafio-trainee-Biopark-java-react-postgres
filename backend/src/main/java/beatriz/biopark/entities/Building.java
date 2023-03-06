@@ -27,7 +27,7 @@ public class Building implements Serializable {
 	private String neighborhood;
 	private String floors;
 
-	@OneToMany
+	@OneToMany(mappedBy = "building")
 	private List<Apartment> apartments = new ArrayList<>();
 
 	public Building() {

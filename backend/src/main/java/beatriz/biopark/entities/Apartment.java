@@ -6,6 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,7 +27,11 @@ public class Apartment implements Serializable{
 	private String garage;
 	private String floor;
 	private String dimension;
+	
+	@ManyToOne
+	@JoinColumn(name = "building_id")
 	private Building building;
+	
 	private StatusApartment statusApartment;
 	private Double rentAmount;
 	private String imageUrl;

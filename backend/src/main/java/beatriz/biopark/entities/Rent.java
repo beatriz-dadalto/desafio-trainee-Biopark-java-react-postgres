@@ -3,6 +3,8 @@ package beatriz.biopark.entities;
 import java.io.Serializable;
 import java.time.Instant;
 
+import javax.persistence.Column;
+
 public class Rent implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -10,6 +12,8 @@ public class Rent implements Serializable {
 	private Long id;
 	private User user;
 	private Apartment apartment;
+	
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant createdAt;
 	private String durationMonths;
 	private boolean isActive;
