@@ -3,6 +3,7 @@
 :root {
   --primary: #bc4123;
   --secondary: #2b3452;
+  --button: green
 }
 body {
   margin: 0;
@@ -13,17 +14,19 @@ body {
 * {
   color: #fff;
   margin: 0;
-}
-p {
-  margin: 20px 0;
+  box-sizing: border-box;
 }
 button {
   border: 0;
   padding: 8px;
   border-radius: 4px;
   color: white;
-  background: var(--primary);
+  background: var(--button);
   cursor: pointer;
+}
+img {
+  display: block;
+  width: 100%;
 }
 
 /* navbar */
@@ -54,4 +57,26 @@ header nav a.active {
 main {
   max-width: 1200px;
   margin: 40px auto;
+}
+
+/* card */
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  
+}
+
+/* card-item */
+.card-item {
+  background-color: #1D2542;
+  border-radius: 4px;
+  width: 24.16rem;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.card-item img {
+  border-radius: 4px;
 }
